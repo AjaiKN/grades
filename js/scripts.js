@@ -20,12 +20,11 @@ function getCurrentGrade() {
     }
 }
 function getAssignmentPercent() {
-    if ($("#gr-choice:checked")) {
+    if ($("#gr-choice:checked").val()) {
         return $("#assignment-percent-of-grade").val();
     } else {
-        console.log(getPoints() / (getPoints() + $("denominator").val()));
         a = parseFloat(getPoints());
-        b = parseFloat($("denominator").val());
+        b = parseFloat($("#denominator").val());
         return a / (a + b) * 100;
     }
 }

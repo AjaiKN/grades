@@ -12,7 +12,7 @@ function makeTable(container, data) {
 
 function getCurrentGrade() {
     if ($("#gr-choice:checked").val()) {
-        return $("#grade-point-choice").val();
+        return $("#grade").val();
     } else {
         const a = parseFloat($("#numerator").val());
         const b = parseFloat($("#denominator").val());

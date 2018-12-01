@@ -69,4 +69,5 @@ function doStuff() {
 $(document).ready(function() {
     doStuff();
     $(".input-change").keyup(doStuff);
+    $(".input-change").change(doStuff);
 })

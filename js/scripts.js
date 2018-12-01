@@ -26,7 +26,6 @@ function round(num) {
 
 function tableRound(table) {
     return table.map(function(r, ind) {
-        console.log(r.map(round));
         return (ind == 0) ? r : r.map(round);
     })
 }
@@ -68,6 +67,5 @@ function doStuff() {
 
 $(document).ready(function() {
     doStuff();
-    $(".input-change").keyup(doStuff);
-    $(".input-change").change(doStuff);
+    $(".input-change").on('input', doStuff);
 })

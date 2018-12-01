@@ -11,10 +11,23 @@ function makeTable(container, data) {
 }
 
 function getCurrentGrade() {
-    return $("#grade").val();
+    if ($("#gr-choice:checked").val()) {
+        return $("#grade-point-choice").val();
+    } else {
+        const a = parseFloat($("#numerator").val());
+        const b = parseFloat($("#denominator").val());
+        return a/b * 100;
+    }
 }
 function getAssignmentPercent() {
-    return $("#assignment-percent-of-grade").val();
+    if ($("#gr-choice:checked")) {
+        return $("#assignment-percent-of-grade").val();
+    } else {
+        console.log(getPoints() / (getPoints() + $("denominator").val()));
+        a = parseFloat(getPoints());
+        b = parseFloat($("denominator").val());
+        return a / (a + b) * 100;
+    }
 }
 function getPoints() {
     return $("#points").val();
@@ -40,7 +53,7 @@ function doStuff1(currentGrade, assignmentPercent, points) {
 
     const data = [["Assignment grade (points)", "Assignment grade (%)", "Total grade"]];
     for (i = 0; i <= 10; i++) {
-        data[i+1] = [i*10/100*points, i*10, fun(i*10)];
+        data[i+1] = [i/10*points, i*10, fun(i*10)];
     }
 
     function funInverse(gradeNeeded) {
@@ -67,5 +80,5 @@ function doStuff() {
 
 $(document).ready(function() {
     doStuff();
-    $(".input-change").on('input', doStuff);
+    $(".input-change,:radio").on('input', doStuff);
 })

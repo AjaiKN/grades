@@ -14,9 +14,12 @@
 </head>
 
 <body>
-    Current grade (%): <input class="input-change" type="number" id="grade" value="85"> <br>
-    Percent of grade assignment is worth (%): <input class="input-change" type="number" id="assignment-percent-of-grade" value="50"> <br>
-    Number of points this assignment is worth (optional): <input class="input-change" type="number" id="points" value="100">
+    <form action="" id="grade-point-choice">
+    <input type="radio" name="choice" id="gr-choice" value="gr" checked> Current grade (%): <input class="input-change" type="number" id="grade" value="85"> <br>
+    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Percent of grade assignment is worth (%): <input class="input-change" type="number" id="assignment-percent-of-grade" value="50"> <br>
+    <input type="radio" name="choice" value="pt"> Points: <input class="input-change" type="number" id="numerator" value="147"> / <input class="input-change" type="number" id="denominator" value="163">
+    </form>
+    Number of points this assignment is worth: <input class="input-change" type="number" id="points" value="100">
     <!-- <input class="input-change" type="number" id="asst-grade" value="50"> -->
     <!-- <p id="txt">Hi text</p> -->
 

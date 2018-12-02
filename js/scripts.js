@@ -1,3 +1,5 @@
+"use strict";
+
 function makeTable(container, data) {
     var table = $("<table border=\"1\"/>").addClass('CSSTableGenerator');
     $.each(data, function(rowIndex, r) {
@@ -23,8 +25,8 @@ function getAssignmentPercent() {
     if ($("#gr-choice:checked").val()) {
         return $("#assignment-percent-of-grade").val();
     } else {
-        a = parseFloat(getPoints());
-        b = parseFloat($("#denominator").val());
+        const a = parseFloat(getPoints());
+        const b = parseFloat($("#denominator").val());
         return a / (a + b) * 100;
     }
 }
@@ -51,7 +53,7 @@ function doStuff1(currentGrade, assignmentPercent, points) {
     //$("#txt").text("Your new grade is " + fun(asstGrade));
 
     const data = [["Assignment grade (points)", "Assignment grade (%)", "Total grade"]];
-    for (i = 0; i <= 10; i++) {
+    for (let i = 0; i <= 10; i++) {
         data[i+1] = [i/10*points, i*10, fun(i*10)];
     }
 
@@ -60,8 +62,8 @@ function doStuff1(currentGrade, assignmentPercent, points) {
     }
 
     const data2 = [["Assignment grade (points)", "Assignment grade (%)", "Total grade"]];
-    var i = 0;
-    for (gr = 0; gr <= 100; gr += 10) {
+    let i = 0;
+    for (let gr = 0; gr <= 100; gr += 10) {
         const fi = funInverse(gr);
         if (fi > 0 && fi < 140) {
             data2[i+1] = [fi / 100 * points, fi, gr];

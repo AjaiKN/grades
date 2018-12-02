@@ -52,7 +52,7 @@ function makeGraph(fun) {
     const x = new Array(END / STEP).fill(undefined).map((val, index) => index * STEP);
     const y = x.map(fun);
 
-	Plotly.plot( plotDiv, [{
+	Plotly.newPlot( plotDiv, [{
 	x: x,
     y: y, 
     mode: 'lines' }], {

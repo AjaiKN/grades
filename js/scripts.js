@@ -44,6 +44,21 @@ function tableRound(table) {
     })
 }
 
+const END = 120;
+const STEP = .1;
+function makeGraph(fun) {
+    let plotDiv = document.getElementById('plot');
+
+    const x = new Array(END / STEP).fill(undefined).map((val, index) => index * STEP);
+    const y = x.map(fun);
+
+	Plotly.plot( plotDiv, [{
+	x: x,
+    y: y, 
+    mode: 'lines' }], {
+	margin: { t: 0 }, xaxis: {dtick: 10}, yaxis: {dtick: 10} } );
+}
+
 function doStuff1(currentGrade, assignmentPercent, points) {
     //const asstGrade = $("#asst-grade").val();
     function fun(assignmentGrade) {
@@ -73,6 +88,8 @@ function doStuff1(currentGrade, assignmentPercent, points) {
 
     makeTable($("#table1"), tableRound(data2));
     makeTable($("#table2"), tableRound(data));
+
+    makeGraph(fun);
 }
 
 function doStuff() {

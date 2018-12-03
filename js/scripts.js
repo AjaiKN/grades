@@ -58,8 +58,8 @@ function makeGraph(fun) {
         mode: 'lines'
     }], {
             margin: { t: 0 },
-            xaxis: { title: "Assignment grade (%)", dtick: 10 },
-            yaxis: { title: "Total grade", dtick: 10 }
+            xaxis: { title: "Assignment grade (%)", dtick: 10, showspikes: true },
+            yaxis: { title: "Total grade", dtick: 10, showspikes: true }
         });
 }
 
